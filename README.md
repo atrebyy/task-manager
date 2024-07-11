@@ -13,6 +13,7 @@ A Simple (suck-less) and hackable command-line tool for managing tasks with Pyth
    cd /usr/local/bin
    sudo mv task_manager.py <command-name> # example: tm
    sudo chmod +x <command-name>
+   rm -rf /~/task-manager
 
 # Usage
 
