@@ -7,13 +7,14 @@ A Simple (suck-less) and hackable command-line tool for managing tasks with Pyth
 - Clone the repository:
 
    ```bash
+   cd $HOME
    git clone https://github.com/atrebyy/task-manager.git
    cd task-manager
    sudo cp task_manager.py /usr/local/bin
+   rm -rf task-manager
    cd /usr/local/bin
    sudo mv task_manager.py <command-name> # example: tm
    sudo chmod +x <command-name>
-   rm -rf /~/task-manager
 
 # Usage
 
