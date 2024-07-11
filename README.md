@@ -9,7 +9,6 @@ A Simple (suck-less) and hackable command-line tool for managing tasks with Pyth
    ```bash
    git clone https://github.com/atrebyy/task-manager.git
    cd task-manager
-   python3 task-manager.py
 
 # Usage
 
