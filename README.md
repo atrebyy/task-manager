@@ -13,25 +13,25 @@ A Simple (suck-less) and hackable command-line tool for managing tasks with Pyth
 
 # Usage
 
-## Add a task
+- Add a task
 task_manager.py add -t "Task description"
 
-## List tasks
+- List tasks
 task_manager.py list
 
-## Complete a task
+- Complete a task
 task_manager.py complete -n 1
 
-## Clear completed tasks
+- Clear completed tasks
 task_manager.py clear
 
-## Clear all tasks
+- Clear all tasks
 task_manager.py clear -n all
 
-## Save tasks
+- Save tasks
 task_manager.py save
 
-## Load tasks
+- Load tasks
 task_manager.py load
 
 # Contributing
