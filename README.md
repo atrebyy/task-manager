@@ -45,4 +45,4 @@ A Simple (suck-less) and hackable command-line tool for managing tasks with Pyth
 Contributions are welcome if they are more suck-less ofc ;)! Please fork the repository and submit a pull request.
 
 # License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/atrebyy/task-manager/edit/main/LICENCE) file for details.
