@@ -1,34 +1,37 @@
 # Command-line Task Manager
 
-Simple (suck-less) command-line tool for managing tasks with Python.
+A Simple (suck-less) and hackable command-line tool for managing tasks with Python.
 
-## Installation
+# Installation
 
-1. Clone the repository:
+- Clone the repository:
 
    ```bash
    git clone https://github.com/atrebyy/task-manager.git
    cd task-manager
+   python3 task-manager.py
 
-# Add a task
+# Usage
+
+## Add a task
 task_manager.py add -t "Task description"
 
-# List tasks
+## List tasks
 task_manager.py list
 
-# Complete a task
+## Complete a task
 task_manager.py complete -n 1
 
-# Clear completed tasks
+## Clear completed tasks
 task_manager.py clear
 
-# Clear all tasks
+## Clear all tasks
 task_manager.py clear -n all
 
-# Save tasks
+## Save tasks
 task_manager.py save
 
-# Load tasks
+## Load tasks
 task_manager.py load
 
 # Contributing
