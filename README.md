@@ -1,6 +1,6 @@
 # Command-line Task Manager
 
-Command-line tool for managing tasks with Python.
+Simple (suck-less) command-line tool for managing tasks with Python.
 
 ## Installation
 
