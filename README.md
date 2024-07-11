@@ -38,7 +38,8 @@ A Simple (suck-less) and hackable command-line tool for managing tasks with Pyth
    task_manager.py save
 
 - Load tasks
-task_manager.py load
+  ```bash
+  task_manager.py load
 
 # Contributing
 Contributions are welcome! Please fork the repository and submit a pull request.
