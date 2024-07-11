@@ -9,36 +9,39 @@ A Simple (suck-less) and hackable command-line tool for managing tasks with Pyth
    ```bash
    git clone https://github.com/atrebyy/task-manager.git
    cd task-manager
+   sudo cp task_manager.py /usr/local/bin
+   cd /urs/local/bin
+   sudo mv task_manager.py <command-name> # example: tm
 
 # Usage
 
 - Add a task
    ```bash
-   task_manager.py add -t "Task description"
+   tm add -t "Task description"
 
 - List tasks
    ```bash
-   task_manager.py list
+   tm list
 
 - Complete a task
    ```bash
-   task_manager.py complete -n 1
+   tm complete -n 1
 
 - Clear completed tasks
    ```bash
-   task_manager.py clear
+   tm clear
 
 - Clear all tasks
    ```bash
-   task_manager.py clear -n all
+   tm clear -n all
 
 - Save tasks
   ```bash
-   task_manager.py save
+   tm save
 
 - Load tasks
   ```bash
-  task_manager.py load
+  tm load
 
 # Contributing
 Contributions are welcome if they are more suck-less ofc ;)! Please fork the repository and submit a pull request.
