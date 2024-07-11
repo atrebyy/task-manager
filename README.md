@@ -42,7 +42,7 @@ A Simple (suck-less) and hackable command-line tool for managing tasks with Pyth
   task_manager.py load
 
 # Contributing
-Contributions are welcome! Please fork the repository and submit a pull request.
+Contributions are welcome if they are more suck-less ofc ;)! Please fork the repository and submit a pull request.
 
 # License
 This project is licensed under the MIT License - see the LICENSE file for details.
