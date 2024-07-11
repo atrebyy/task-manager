@@ -7,7 +7,7 @@ Command-line tool for managing tasks with Python.
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/task-manager.git
+   git clone https://github.com/atrebyy/task-manager.git
    cd task-manager
 
 # Add a task
