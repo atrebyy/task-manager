@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 import os
+import sys
 
 # ANSI color codes for basic colors
 class colors:
@@ -30,6 +31,20 @@ def complete_task(task_num):
         print(f"{colors.WARNING}Invalid task number.{colors.ENDC}")
     else:
         tasks[task_num - 1]['completed'] = True
+
+def uncomplete_task(task_num):
+    if task_num <= 0 or task_num > len(tasks):
+        print(f"{colors.WARNING}Invalid task number.{colors.ENDC}")
+    else:
+        tasks[task_num - 1]['completed'] = False
+
+def complete_all_tasks():
+    for task in tasks:
+        task['completed'] = True
+
+def uncomplete_all_tasks():
+    for task in tasks:
+        task['completed'] = False
 
 def clear_completed_tasks():
     global tasks
@@ -66,13 +81,21 @@ def load_tasks(filename):
 
 def main():
     parser = argparse.ArgumentParser(description="Command-line task manager")
-    parser.add_argument('command', choices=['add', 'list', 'complete', 'clear', 'save', 'load'], help="Command to execute")
-    parser.add_argument('--task', '-t', help="Task description")
+    parser.add_argument('command', choices=['add', 'list', 'complete', 'uncomplete', 'complete-all', 'uncomplete-all', 'clear-completed', 'clear-all'],
+                        help="Command to execute")
+    parser.add_argument('--task', '-a', help="Task description")
     parser.add_argument('--task_num', '-n', type=int, help="Task number")
+    parser.add_argument('--file', '-f', help="File to save/load tasks (must end with .txt or .md)")
 
     args = parser.parse_args()
 
-    filename = "tasks.txt"
+    if args.file:
+        if not args.file.lower().endswith(('.txt', '.md')):
+            print(f"{colors.WARNING}File must end with .txt or .md extension.{colors.ENDC}")
+            sys.exit(1)
+        filename = args.file
+    else:
+        filename = "tasks.txt"
 
     load_tasks(filename)
 
@@ -91,22 +114,33 @@ def main():
         else:
             print(f"{colors.WARNING}Please provide a task number to complete.{colors.ENDC}")
 
-    elif args.command == 'clear':
+    elif args.command == 'uncomplete':
         if args.task_num:
-            clear_completed_tasks()
-        elif args.task_num == 'all':
+            uncomplete_task(args.task_num)
+        else:
+            print(f"{colors.WARNING}Please provide a task number to mark as incomplete.{colors.ENDC}")
+
+    elif args.command == 'complete-all':
+        complete_all_tasks()
+
+    elif args.command == 'uncomplete-all':
+        uncomplete_all_tasks()
+
+    elif args.command == 'clear-completed':
+        clear_completed_tasks()
+
+    elif args.command == 'clear-all':
+        confirm = input("Are you sure you want to clear all tasks? (y/N): ").strip().lower()
+        if confirm == 'y':
             clear_all_tasks()
         else:
-            print(f"{colors.WARNING}Invalid command. Use '--task_num all' to clear all tasks.{colors.ENDC}")
-
-    elif args.command == 'save':
-        save_tasks(filename)
-
-    elif args.command == 'load':
-        load_tasks(filename)
+            print("Operation canceled.")
+            sys.exit()
 
     else:
         parser.print_help()
+
+    save_tasks(filename)
 
 if __name__ == "__main__":
     main()
