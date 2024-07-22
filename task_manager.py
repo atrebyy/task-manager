@@ -74,6 +74,7 @@ def load_tasks(filename):
                 task_info = line.strip().split('|')
                 task = {'task': task_info[0], 'completed': task_info[1] == 'True'}
                 tasks.append(task)
+        print(f"{colors.OKGREEN}Tasks loaded from '{filename}'.{colors.ENDC}")
     except FileNotFoundError:
         print(f"{colors.WARNING}File '{filename}' not found. Starting with an empty task list.{colors.ENDC}")
     except IOError:
@@ -84,7 +85,7 @@ def main():
     parser.add_argument('command', choices=['add', 'list', 'complete', 'uncomplete', 'complete-all', 'uncomplete-all', 'clear-completed', 'clear-all'],
                         help="Command to execute")
     parser.add_argument('--task', '-a', help="Task description")
-    parser.add_argument('--task_num', '-n', type=int, help="Task number")
+    parser.add_argument('--task-num', '-n', type=int, help="Task number")
     parser.add_argument('--file', '-f', help="File to save/load tasks (must end with .txt or .md)")
 
     args = parser.parse_args()
@@ -103,7 +104,7 @@ def main():
         if args.task:
             add_task(args.task)
         else:
-            print(f"{colors.WARNING}Please provide a task description.{colors.ENDC}")
+            print(f"{colors.WARNING}Please provide a task description using '--task' or '-a'.{colors.ENDC}")
 
     elif args.command == 'list':
         list_tasks()
@@ -112,13 +113,13 @@ def main():
         if args.task_num:
             complete_task(args.task_num)
         else:
-            print(f"{colors.WARNING}Please provide a task number to complete.{colors.ENDC}")
+            print(f"{colors.WARNING}Please provide a task number to complete using '--task-num' or '-n'.{colors.ENDC}")
 
     elif args.command == 'uncomplete':
         if args.task_num:
             uncomplete_task(args.task_num)
         else:
-            print(f"{colors.WARNING}Please provide a task number to mark as incomplete.{colors.ENDC}")
+            print(f"{colors.WARNING}Please provide a task number to mark as incomplete using '--task-num' or '-n'.{colors.ENDC}")
 
     elif args.command == 'complete-all':
         complete_all_tasks()
